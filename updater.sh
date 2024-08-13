@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/sh
 
 # ------------ SET -------------
 
@@ -42,7 +42,7 @@ touch $XDG_Desktop_Entry
 
 printf '%s\n' '#!/bin/sh' $Exec >> $Binary && printf "\n[*] Shortcut created at: $Binary"
 printf '%s\n'	'[Desktop Entry]' 'Type=Application' 'Version='$Version'' 'Name='$ID'' 'GenericName=Web Browser' \
-				'Icon='$Path/'browser/chrome/icons/default/default128.png' 'Exec='$ID' %u' 'Path='$Path/'' 'Terminal=false' \
-				'MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;' \
-				'Categories=Network;WebBrowser;' 'Keywords=web;browser;internet' >> $XDG_Desktop_Entry && printf "\n[*] Shortcut created at: $XDG_Desktop_Entry\n\n"
+		'Icon='$Path/'browser/chrome/icons/default/default128.png' 'Exec='$ID' %u' 'Path='$Path/'' 'Terminal=false' \
+		'MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;' \
+		'Categories=Network;WebBrowser;' 'Keywords=web;browser;internet' >> $XDG_Desktop_Entry && printf "\n[*] Shortcut created at: $XDG_Desktop_Entry\n\n"
 exit #EOF
