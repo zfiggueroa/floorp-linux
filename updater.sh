@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/dash
 
 # ------------ SET -------------
 
 ID="floorp"; Path="$HOME/.local/share/floorp"; Exec="$Path/$ID"; Binary="$HOME/.local/bin/$ID"; Tarball=$(mktemp /tmp/$ID.XXXXXX.tar.bz2)
 Version=$(curl -s https://github.com/Floorp-Projects/Floorp/tags | grep -m 1 '<h2 data-view-component="true" class="f4 d-inline">' | grep -o -P '(?<=Link">v).*(?=</a></h2>)')
-URL="https://github.com/Floorp-Projects/Floorp/releases/download/v$Version/floorp-$Version.linux-x86_64.tar.bz2"
+URL="https://github.com/Floorp-Projects/Floorp/releases/download/v$Version/$ID-$Version.linux-x86_64.tar.bz2"
 XDG_Desktop_Entry="$HOME/.local/applications/$ID.desktop"
 
 # ----------- CHECK ------------
@@ -16,7 +16,7 @@ if [ -f "$Binary" ]; then
 fi
 
 if [ -d "$Path" ]; then
-  printf "[X] Removing already existing version\n"; rm -rf "Path"
+  printf "[X] Removing already existing version\n"; rm -rf "$Path"
 fi
 
 if [ -f "$XDG_Desktop_Entry" ]; then
