@@ -3,7 +3,7 @@
 # ------------ SET -------------
 
 ID="floorp"; Path="$HOME/.local/share/floorp"; Exec="$Path/$ID"; Binary="$HOME/.local/bin/$ID"; Tarball=$(mktemp /tmp/$ID.XXXXXX.tar.bz2)
-Version=$(curl -s https://github.com/Floorp-Projects/Floorp/tags | grep -m 1 '<h2 data-view-component="true" class="f4 d-inline">' | grep -o -P '(?<=Link">v).*(?=</a></h2>)')
+Version=$(curl -s https://github.com/Floorp-Projects/Floorp/releases | grep -m 1 '<h2 class="sr-only" id=' | grep -o -P '(?<=>v).*(?=</h2>)')
 URL="https://github.com/Floorp-Projects/Floorp/releases/download/v$Version/$ID-$Version.linux-x86_64.tar.bz2"
 XDG_Desktop_Entry="$HOME/.local/applications/$ID.desktop"
 
